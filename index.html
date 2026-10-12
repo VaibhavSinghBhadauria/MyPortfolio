@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vaibhav Singh Bhadauria | Front-End Developer</title>
+
+    <meta name="description"
+          content="Vaibhav Singh Bhadauria's portfolio. An aspiring front-end developer learning and building with HTML, CSS and Java.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background decoration -->
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="navbar container">
+
+            <a href="#home" class="logo">
+                <span class="logo-box">VS</span>
+                <span>Vaibhav<span class="accent">.</span></span>
+            </a>
+
+            <button class="menu-toggle"
+                    id="menu-toggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link contact-link">Contact</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Hero section -->
+        <section class="hero section container" id="home">
+
+            <div class="hero-content reveal">
+
+                <p class="eyebrow">
+                    <span class="status-dot"></span>
+                    AVAILABLE TO LEARN AND COLLABORATE
+                </p>
+
+                <h1>
+                    Hi, I'm <span class="gradient-text">Vaibhav</span>
+                    <br>
+                    <span class="hero-subtitle">Aspiring Front-End Developer</span>
+                </h1>
+
+                <p class="hero-description">
+                    Hii, welcome to my portfolio! I am Vaibhav, a tech
+                    enthusiast who loves to learn, create and build.
+                    Join me on my journey into the world of technology.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="button button-primary">
+                        Explore My Work <span aria-hidden="true">↗</span>
+                    </a>
+
+                    <a href="#contact" class="button button-secondary">
+                        Contact Me
+                    </a>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://github.com/VaibhavSinghBhadauria"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        GitHub ↗
+                    </a>
+
+                    <a href="https://vercel.com/vaibhav-bhadauria"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Vercel ↗
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Initials visual -->
+            <div class="hero-visual reveal">
+                <div class="visual-card">
+
+                    <div class="visual-top">
+                        <span class="window-dot"></span>
+                        <span class="window-dot"></span>
+                        <span class="window-dot"></span>
+                        <span class="visual-label">MY DIGITAL SPACE</span>
+                    </div>
+
+                    <div class="initials-circle">
+                        <span>VS</span>
+                    </div>
+
+                    <h2>Learning. Building. Growing.</h2>
+
+                    <p>
+                        Turning ideas into meaningful digital experiences.
+                    </p>
+
+                    <div class="tech-pills">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>Java</span>
+                    </div>
+
+                    <div class="code-decoration">
+                        <span>&lt;</span> create something great <span>/&gt;</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- About section -->
+        <section class="section container" id="about">
+
+            <div class="section-heading reveal">
+                <p class="section-label">GET TO KNOW ME</p>
+                <h2>About <span class="gradient-text">Me</span></h2>
+                <p>A little introduction about who I am and what I do.</p>
+            </div>
+
+            <div class="about-card reveal">
+
+                <div class="about-icon">✦</div>
+
+                <div>
+                    <h3>Curious Mind. Growing Developer.</h3>
+
+                    <p>
+                        Hello! I'm Vaibhav Singh Bhadauria, an aspiring
+                        front-end developer and tech enthusiast. I'm
+                        learning programming and web development while
+                        building projects to improve my practical skills.
+                    </p>
+
+                    <p>
+                        My current focus is on HTML, CSS and Java. I believe
+                        in learning by doing, solving problems and improving
+                        a little every day. This portfolio is a place to
+                        share my journey and the projects I create.
+                    </p>
+
+                    <a href="#contact" class="text-link">
+                        Let's connect <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Skills section -->
+        <section class="section container" id="skills">
+
+            <div class="section-heading reveal">
+                <p class="section-label">WHAT I'M LEARNING</p>
+                <h2>My <span class="gradient-text">Skills</span></h2>
+                <p>Technologies I'm currently learning and practising.</p>
+            </div>
+
+            <div class="skills-grid">
+
+                <article class="skill-card reveal">
+                    <div class="skill-icon html-icon">5</div>
+                    <h3>HTML</h3>
+                    <p>
+                        Building the structure of web pages with semantic
+                        HTML elements.
+                    </p>
+                    <span class="skill-status">Learning & Practising</span>
+                </article>
+
+                <article class="skill-card reveal">
+                    <div class="skill-icon css-icon">✦</div>
+                    <h3>CSS</h3>
+                    <p>
+                        Styling responsive layouts, typography, colours
+                        and interactive elements.
+                    </p>
+                    <span class="skill-status">Learning & Practising</span>
+                </article>
+
+                <article class="skill-card reveal">
+                    <div class="skill-icon java-icon">☕</div>
+                    <h3>Java</h3>
+                    <p>
+                        Developing programming fundamentals and
+                        problem-solving skills.
+                    </p>
+                    <span class="skill-status">Learning & Practising</span>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- Projects section -->
+        <section class="section container" id="projects">
+
+            <div class="section-heading reveal">
+                <p class="section-label">WHAT I'VE BEEN BUILDING</p>
+                <h2>Featured <span class="gradient-text">Project</span></h2>
+                <p>A project from my journey into web development.</p>
+            </div>
+
+            <article class="project-card reveal">
+
+                <div class="project-preview">
+                    <div class="preview-browser">
+                        <div class="browser-bar">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <p>my-project.vercel.app</p>
+                        </div>
+
+                        <div class="preview-content">
+                            <span class="preview-tag">MY WEB PROJECT</span>
+                            <h3>Building for the Web.</h3>
+                            <p>
+                                Learning through code, creativity and
+                                practical projects.
+                            </p>
+                            <
