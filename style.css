@@ -1,0 +1,865 @@
+/* ==============================
+   1. Global styles
+============================== */
+
+:root {
+    --bg: #080b16;
+    --bg-light: #0d1222;
+    --card: rgba(17, 24, 45, 0.82);
+    --border: rgba(151, 166, 209, 0.16);
+    --text: #f3f5ff;
+    --muted: #a2abc5;
+    --blue: #66a6ff;
+    --purple: #a78bfa;
+    --cyan: #65e6ff;
+    --radius: 20px;
+    --container: 1120px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+body,
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+.container {
+    width: min(var(--container), calc(100% - 40px));
+    margin-inline: auto;
+}
+
+.section {
+    padding-block: 105px;
+}
+
+h1,
+h2,
+h3,
+.logo {
+    font-family: "Space Grotesk", sans-serif;
+    line-height: 1.2;
+}
+
+p {
+    color: var(--muted);
+}
+
+::selection {
+    color: white;
+    background: #6654c9;
+}
+
+.accent {
+    color: var(--blue);
+}
+
+.gradient-text {
+    background: linear-gradient(100deg, var(--blue), var(--purple), var(--cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* ==============================
+   2. Background decoration
+============================== */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(145, 165, 220, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(145, 165, 220, 0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+}
+
+.background-glow {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.16;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.glow-one {
+    background: #526cff;
+    top: 180px;
+    left: -180px;
+}
+
+.glow-two {
+    background: #8a43db;
+    top: 500px;
+    right: -190px;
+}
+
+/* ==============================
+   3. Header and navigation
+============================== */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8, 11, 22, 0.82);
+    border-bottom: 1px solid rgba(151, 166, 209, 0.1);
+    backdrop-filter: blur(18px);
+}
+
+.navbar {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.logo-box {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #477bff, #9b5de5);
+    color: white;
+    font-size: 14px;
+    box-shadow: 0 5px 25px rgba(92, 107, 255, 0.25);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-link {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: white;
+}
+
+.contact-link {
+    display: inline-block;
+    padding: 9px 17px;
+    color: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.contact-link:hover {
+    border-color: var(--blue);
+    background: rgba(102, 166, 255, 0.08);
+}
+
+.menu-toggle {
+    display: none;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* ==============================
+   4. Buttons
+============================== */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 12px 21px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+}
+
+.button-primary {
+    color: white;
+    background: linear-gradient(110deg, #477bff, #815ce5);
+    box-shadow: 0 8px 25px rgba(83, 104, 255, 0.2);
+}
+
+.button-primary:hover {
+    box-shadow: 0 12px 32px rgba(83, 104, 255, 0.35);
+}
+
+.button-secondary {
+    color: var(--text);
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.button-secondary:hover {
+    border-color: var(--blue);
+    background: rgba(102, 166, 255, 0.08);
+}
+
+/* ==============================
+   5. Hero section
+============================== */
+
+.hero {
+    min-height: 610px;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 70px;
+    padding-top: 85px;
+    padding-bottom: 95px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 25px;
+    color: #b9c5e7;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #68e5b0;
+    box-shadow: 0 0 12px rgba(104, 229, 176, 0.7);
+}
+
+.hero h1 {
+    margin-bottom: 25px;
+    font-size: clamp(38px, 5vw, 64px);
+    letter-spacing: -2px;
+}
+
+.hero-subtitle {
+    display: inline-block;
+    margin-top: 12px;
+    color: #d8def1;
+    font-size: clamp(24px, 3vw, 34px);
+    letter-spacing: -1px;
+}
+
+.hero-description {
+    max-width: 550px;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 27px;
+}
+
+.social-links a {
+    color: var(--muted);
+    font-size: 13px;
+    transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+    color: var(--cyan);
+}
+
+/* Hero visual card */
+
+.hero-visual {
+    position: relative;
+}
+
+.visual-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 390px;
+    padding: 23px;
+    text-align: center;
+    border: 1px solid rgba(150, 170, 255, 0.2);
+    border-radius: 26px;
+    background:
+        radial-gradient(circle at 50% 42%, rgba(106, 96, 255, 0.17), transparent 50%),
+        linear-gradient(145deg, rgba(23, 32, 62, 0.95), rgba(12, 16, 33, 0.95));
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.28);
+}
+
+.visual-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(255,255,255,0.045), transparent 45%);
+}
+
+.visual-top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-bottom: 19px;
+    border-bottom: 1px solid var(--border);
+}
+
+.window-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #52617f;
+}
+
+.window-dot:first-child {
+    background: #ff7676;
+}
+
+.window-dot:nth-child(2) {
+    background: #ffd166;
+}
+
+.window-dot:nth-child(3) {
+    background: #64dfa1;
+}
+
+.visual-label {
+    margin-left: auto;
+    color: #8794b8;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+}
+
+.initials-circle {
+    display: grid;
+    place-items: center;
+    width: 150px;
+    height: 150px;
+    margin: 36px auto 24px;
+    border: 1px solid rgba(163, 160, 255, 0.6);
+    border-radius: 50%;
+    background: linear-gradient(145deg, #416dce, #8652d5);
+    box-shadow:
+        0 0 0 12px rgba(117, 112, 255, 0.06),
+        0 0 60px rgba(104, 112, 255, 0.3);
+    animation: float 4s ease-in-out infinite;
+}
+
+.initials-circle span {
+    color: white;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 54px;
+    font-weight: 700;
+    letter-spacing: -3px;
+}
+
+.visual-card h2 {
+    margin-bottom: 9px;
+    font-size: 20px;
+}
+
+.visual-card > p {
+    font-size: 12px;
+}
+
+.tech-pills,
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 9px;
+}
+
+.tech-pills {
+    margin-top: 22px;
+}
+
+.tech-pills span,
+.project-tags span {
+    padding: 6px 12px;
+    color: #c9d5f6;
+    border: 1px solid rgba(139, 158, 226, 0.2);
+    border-radius: 8px;
+    background: rgba(109, 131, 215, 0.08);
+    font-size: 11px;
+}
+
+.code-decoration {
+    margin-top: 24px;
+    color: #8895bb;
+    font-family: monospace;
+    font-size: 11px;
+}
+
+.code-decoration span {
+    color: var(--cyan);
+}
+
+/* ==============================
+   6. Section headings
+============================== */
+
+.section-heading {
+    max-width: 650px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.section-label {
+    margin-bottom: 12px;
+    color: var(--cyan);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.section-heading h2,
+.contact-card h2 {
+    margin-bottom: 14px;
+    font-size: clamp(32px, 4vw, 44px);
+    letter-spacing: -1.2px;
+}
+
+.section-heading > p:last-child {
+    font-size: 14px;
+}
+
+/* ==============================
+   7. About section
+============================== */
+
+.about-card {
+    display: grid;
+    grid-template-columns: 65px 1fr;
+    gap: 24px;
+    padding: 38px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--card);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+.about-icon {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border: 1px solid rgba(115, 148, 255, 0.25);
+    border-radius: 16px;
+    color: var(--cyan);
+    background: rgba(94, 122, 255, 0.1);
+    font-size: 27px;
+}
+
+.about-card h3 {
+    margin-bottom: 18px;
+    font-size: 23px;
+}
+
+.about-card p {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.text-link {
+    display: inline-flex;
+    gap: 9px;
+    margin-top: 7px;
+    color: var(--cyan);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* ==============================
+   8. Skills section
+============================== */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.skill-card {
+    padding: 29px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: linear-gradient(145deg, rgba(19, 27, 49, 0.88), rgba(12, 16, 32, 0.88));
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(110, 154, 255, 0.5);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+}
+
+.skill-icon {
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    margin-bottom: 22px;
+    border-radius: 15px;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.html-icon {
+    color: #ffab85;
+    background: rgba(255, 112, 70, 0.12);
+}
+
+.css-icon {
+    color: #82b8ff;
+    background: rgba(72, 132, 255, 0.13);
+}
+
+.java-icon {
+    color: #ffcf8a;
+    background: rgba(255, 185, 82, 0.12);
+}
+
+.skill-card h3 {
+    margin-bottom: 12px;
+    font-size: 21px;
+}
+
+.skill-card p {
+    min-height: 72px;
+    margin-bottom: 20px;
+    font-size: 13px;
+}
+
+.skill-status {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 7px;
+    color: #a8d6ff;
+    background: rgba(89, 150, 255, 0.09);
+    font-size: 10px;
+    font-weight: 600;
+}
+
+/* ==============================
+   9. Projects section
+============================== */
+
+.project-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: var(--card);
+}
+
+.project-preview {
+    display: grid;
+    place-items: center;
+    min-height: 360px;
+    padding: 28px;
+    background:
+        radial-gradient(circle at 50% 40%, rgba(87, 105, 255, 0.2), transparent 60%),
+        #10172b;
+}
+
+.preview-browser {
+    overflow: hidden;
+    width: 100%;
+    max-width: 420px;
+    min-height: 260px;
+    border: 1px solid rgba(154, 174, 255, 0.25);
+    border-radius: 13px;
+    background: #0b1020;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .preview-browser {
+    transform: rotate(0deg) translateY(-3px);
+}
+
+.browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.browser-bar span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #66718e;
+}
+
+.browser-bar span:first-child {
+    background: #ff7676;
+}
+
+.browser-bar span:nth-child(2) {
+    background: #ffd166;
+}
+
+.browser-bar span:nth-child(3) {
+    background: #64dfa1;
+}
+
+.browser-bar p {
+    overflow: hidden;
+    margin-left: 10px;
+    font-size: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.preview-content {
+    padding: 28px 24px;
+}
+
+.preview-tag {
+    color: var(--cyan);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+}
+
+.preview-content h3 {
+    margin: 15px 0 10px;
+    font-size: 26px;
+}
+
+.preview-content p {
+    max-width: 300px;
+    font-size: 12px;
+}
+
+.preview-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 7px 11px;
+    border-radius: 7px;
+    background: linear-gradient(110deg, #477bff, #815ce5);
+    color: white;
+    font-size: 10px;
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 42px;
+}
+
+.project-info h3 {
+    margin-bottom: 16px;
+    font-size: 27px;
+}
+
+.project-info > p:not(.section-label) {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.project-info .project-tags {
+    justify-content: flex-start;
+    margin-bottom: 27px;
+}
+
+.project-note {
+    margin-top: 22px;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* ==============================
+   10. Contact section
+============================== */
+
+.contact-card {
+    position: relative;
+    overflow: hidden;
+    padding: 65px 30px;
+    text-align: center;
+    border: 1px solid rgba(127, 149, 255, 0.22);
+    border-radius: 25px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(106, 93, 255, 0.19), transparent 65%),
+        linear-gradient(145deg, #111a32, #0b1020);
+}
+
+.contact-card h2 {
+    max-width: 700px;
+    margin-inline: auto;
+}
+
+.contact-card > p:not(.section-label) {
+    max-width: 570px;
+    margin: 0 auto 28px;
+    font-size: 14px;
+}
+
+.contact-details {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-top: 25px;
+}
+
+.contact-details a {
+    color: var(--muted);
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.contact-details a:hover {
+    color: var(--cyan);
+}
+
+/* ==============================
+   11. Footer
+============================== */
+
+.footer {
+    padding: 28px 0;
+    border-top: 1px solid var(--border);
+    background: rgba(6, 9, 18, 0.6);
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-content > p {
+    font-size: 11px;
+    text-align: center;
+}
+
+/* ==============================
+   12. Animations
+============================== */
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==============================
+   13. Tablet layout
+============================== */
+
+@media (max-width: 900px) {
+    .section {
+        padding-block: 80px;
+    }
+
+    .hero {
+        gap: 35px;
+        grid-template-columns: 1fr 0.85fr;
+    }
+
+    .hero h1 {
+        font-size: 46px;
+    }
+
+    .hero-subtitle {
+        font-size: 27px;
+    }
+
+    .skills-grid {
+        gap: 14px;
+    }
+
+    .skill-card {
+        padding: 22px;
